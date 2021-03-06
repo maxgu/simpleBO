@@ -1,5 +1,13 @@
 version: '3'
 services:
+  sbo_nginx:
+    container_name: "sbo.nginx"
+    image: nginx:1.17.6
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/sbo/current
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
   sbo_php:
     container_name: "sbo.php"
     build: ./docker/php/
