@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GetMyselfAction extends AbstractAction
 {
-    #[Route('/api/get-myself', name: 'auth', methods: ["GET","HEAD"])]
+    #[Route('/api/get-myself', name: 'get-myself', methods: ["GET","HEAD"])]
     public function handle(): JsonResponse
     {
         return $this->respondSuccess([
