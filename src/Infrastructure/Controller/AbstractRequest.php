@@ -59,7 +59,7 @@ abstract class AbstractRequest
                 $content,
                 true,
                 512,
-                JSON_BIGINT_AS_ST
+                JSON_BIGINT_AS_STRING | (\PHP_VERSION_ID >= 70300 ? JSON_THROW_ON_ERROR : 0)
             );
         } catch (\JsonException $e) {
             throw new \InvalidArgumentException('Json decoding error: ' . $e->getMessage());
