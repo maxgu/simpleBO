@@ -12,9 +12,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Installing other php extensions
-#RUN docker-php-ext-install \
-#    pdo pdo_mysql \
-#    && docker-php-source delete
+RUN docker-php-ext-install \
+    pdo pdo_mysql \
+    && docker-php-source delete
 
 WORKDIR /var/www/sbo/current
 
