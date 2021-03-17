@@ -37,3 +37,6 @@ services:
     Infrastructure\Listener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+
+    Domain\User\UserRepository: '@Infrastructure\Repository\OrmUserRepository'
+    Application\Service\PasswordEncoder: '@Infrastructure\Security\PasswordEncoder'
