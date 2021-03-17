@@ -10,9 +10,9 @@ security:
                 class: Infrastructure\Security\User
                 property: email
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
         login:
             pattern: ^/api/auth
             stateless: true
