@@ -46,7 +46,12 @@ class User implements UserInterface
 
     public function getRoles(): array
     {
-        return ['ROLE_ADMIN'];
+        return [];
+    }
+
+    public function getRole(): int
+    {
+        return 15;
     }
 
     public function getPassword(): ?string
