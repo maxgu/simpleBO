@@ -11,6 +11,8 @@ class CreateHandler
     private UserRepository $repository;
     private PasswordEncoder $passwordEncoder;
 
+    private ?string $error = null;
+
     public function __construct(UserRepository $repository, PasswordEncoder $passwordEncoder)
     {
         $this->repository = $repository;
@@ -19,6 +21,16 @@ class CreateHandler
 
     public function handle(CreateCommand $command): bool
     {
+        $user = $this->repository->findByEmail($command->getEmail());
+
+        if ($user instanceof User) {
+            $this->error = sprintf(
+                'User with email %s already exists.',
+                $command->getEmail(),
+            );
+            return false;
+        }
+
         $user = new User(
             $command->getEmail(),
             $command->getName(),
@@ -32,6 +44,6 @@ class CreateHandler
 
     public function getError(): ?string
     {
-        return null;
+        return $this->error;
     }
 }

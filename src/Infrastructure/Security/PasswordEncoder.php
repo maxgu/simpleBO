@@ -2,19 +2,21 @@
 
 namespace Infrastructure\Security;
 
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class PasswordEncoder implements \Application\Service\PasswordEncoder
 {
-    private UserPasswordEncoderInterface $passwordEncoder;
+    private EncoderFactoryInterface $encoderFactory;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(EncoderFactoryInterface $encoderFactory)
     {
-        $this->passwordEncoder = $passwordEncoder;
+        $this->encoderFactory = $encoderFactory;
     }
 
     public function encodePassword(string $plainPassword): string
     {
-        return 'xxx';
+        $encoder = $this->encoderFactory->getEncoder(new User('email@mail.com', 'User'));
+
+        return $encoder->encodePassword($plainPassword, null);
     }
 }

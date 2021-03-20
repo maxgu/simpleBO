@@ -16,3 +16,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Infrastructure/Security'
                 prefix: 'Infrastructure\Security'
                 alias: Infrastructure
+            Domain:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine'
+                prefix: 'Domain'
+                alias: Domain

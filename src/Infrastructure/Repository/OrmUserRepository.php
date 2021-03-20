@@ -22,12 +22,23 @@ class OrmUserRepository extends ServiceEntityRepository implements UserRepositor
 
     public function findById(int $id): ?User
     {
-        $admin = $this->find($id);
+        $user = $this->find($id);
 
-        if (!$admin instanceof User) {
+        if (!$user instanceof User) {
             return null;
         }
 
-        return $admin;
+        return $user;
+    }
+
+    public function findByEmail(string $email): ?User
+    {
+        $user = $this->findOneBy(['email' => $email]);
+
+        if (!$user instanceof User) {
+            return null;
+        }
+
+        return $user;
     }
 }
