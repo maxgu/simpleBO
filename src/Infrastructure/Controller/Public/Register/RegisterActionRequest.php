@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure\Controller\Register;
+namespace Infrastructure\Controller\Public\Register;
 
 use Infrastructure\Controller\AbstractRequest;
 use Symfony\Component\Validator\Constraints as Assert;

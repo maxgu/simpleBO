@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure\Controller\GetMyself;
+namespace Infrastructure\Controller\Authenticated\GetMyself;
 
 use Infrastructure\Controller\AbstractAction;
 use Infrastructure\Security\User;

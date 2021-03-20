@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure\Controller\Register;
+namespace Infrastructure\Controller\Public\Register;
 
 use Application\Command\User\CreateCommand;
 use Application\Command\User\CreateHandler;
@@ -17,7 +17,7 @@ class RegisterAction extends AbstractAction
         $this->handler = $security;
     }
 
-    #[Route('/api/register', name: 'register', methods: ["POST","HEAD"])]
+    #[Route('/api/public/register', name: 'register', methods: ["POST","HEAD"])]
     public function handle(RegisterActionRequest $request): JsonResponse
     {
         if (!$request->isValid($request->getPayload())) {
