@@ -19,8 +19,8 @@ class CreateHandler
     public function handle(CreateCommand $command): bool
     {
         $film = new Film(
-            $command->getDescription(),
             $command->getName(),
+            $command->getDescription(),
             $command->getCover()
         );
 
