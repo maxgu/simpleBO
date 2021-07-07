@@ -17,7 +17,7 @@ class UpdateAction extends AbstractAction
         $this->handler = $handler;
     }
 
-    #[Route('/api/backoffice/film/{id}/update', name: 'bo-film-create', methods: ["POST","HEAD"])]
+    #[Route('/api/backoffice/film/{id}/update', name: 'bo-film-update', methods: ["POST","HEAD"])]
     //#[IsGranted('get-myself')]
     public function handle(int $id, CreateActionRequest $request): JsonResponse
     {
