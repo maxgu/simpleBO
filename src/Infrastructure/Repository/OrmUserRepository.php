@@ -14,9 +14,9 @@ class OrmUserRepository extends ServiceEntityRepository implements UserRepositor
         parent::__construct($registry, User::class);
     }
 
-    public function save(User $user): void
+    public function save(User $film): void
     {
-        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->persist($film);
         $this->getEntityManager()->flush();
     }
 
